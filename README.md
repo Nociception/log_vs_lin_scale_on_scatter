@@ -6,6 +6,7 @@ It provides an interactive tool to explore and compare data across different sca
 
 Initially applied to datasets comparing **Gross Domestic Product (GDP) per capita** and **life expectancy**, the tool includes additional data such as population, and Gini coefficient to highlight the socio-economic disparities hidden behind national averages.
 
+### **Required Datasets Architecture**
 Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be pre-processed and cleaned to meet the following structure:
 - The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
 - The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
@@ -52,61 +53,13 @@ While automation for data cleaning is not included, following this structure ens
     python main.py
    ```
 
-Usage Instructions :
-The project contains the original datasets it has been developped with :
-- 
+### **Initial settings**
+The project contains the four original CSV datasets it has been developped with:
+- income_per_person_gdppercapita_ppp_inflation_adjusted.csv (loaded as `data_x`). [PPP stands for purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity)
+- life_expectancy_years.csv (loaded as `data_y`)
+- population_total.csv (loaded as `data_point_size`)
+- Gini_coefficient.csv (loaded as `extra_data_x`) ; [Wikipedia page](https://en.wikipedia.org/wiki/Gini_coefficient)
 
-    Load Your Data:
-        Replace the default datasets with your own CSV files in the data/ folder.
-        Ensure your files follow a structure with:
-            A common column (e.g., country or entity name).
-            Time-based columns for comparison.
-
-    Configure the Tool:
-        Adjust parameters in config.py (e.g., dataset paths, time ranges, labels).
-
-    Interact:
-        Use the slider to navigate through time.
-        Compare visualizations directly as both scales are displayed simultaneously.
-        Track entities of interest and analyze their behavior.
-
-Example Datasets
-
-    GDP per capita (adjusted for inflation): A measure of average income.
-    Life Expectancy: Indicator of health and longevity.
-    Gini Coefficient: Measure of inequality in income distribution.
-
-Technology Stack
-
-    Python:
-        Matplotlib: Interactive scatter plots and visualizations.
-        Pandas: Data manipulation and cleaning.
-        NumPy: Numerical computations.
-        mplcursors: Interactive point annotations.
-
-Features for Developers
-
-The tool is modular and can be extended or customized:
-
-    Add new visualizations: Integrate additional types of graphs.
-    Custom scaling options: Implement new scales beyond linear and logarithmic.
-    Plug-and-Play Datasets: Adapt the framework to accommodate various data formats.
-
-Contributions
-
-Contributions are welcome!
-To contribute:
-
-    Fork the repository.
-    Create a new branch:
-
-    git checkout -b feature-new-feature
-
-    Submit a pull request.
-
-Author
-
-Developed by Your Name, a Python enthusiast with a passion for data visualization and storytelling.
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+As said before, it is possible to replace these datasets (provided that they meet the standard described in [this section](#required-datasets-architecture)
+	
+## Development
