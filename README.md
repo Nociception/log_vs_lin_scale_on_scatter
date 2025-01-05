@@ -53,13 +53,17 @@ While automation for data cleaning is not included, following this structure ens
     python main.py
    ```
 
-### **Initial settings**
-The project contains the four original CSV datasets it has been developped with:
-- income_per_person_gdppercapita_ppp_inflation_adjusted.csv (loaded as `data_x`). [PPP stands for purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity)
-- life_expectancy_years.csv (loaded as `data_y`)
-- population_total.csv (loaded as `data_point_size`)
-- Gini_coefficient.csv (loaded as `extra_data_x`) ; [Wikipedia page](https://en.wikipedia.org/wiki/Gini_coefficient)
+### **Initial settings (main function)**
+Most of adjustable parameters are in the main function :
 
-As said before, it is possible to replace these datasets (provided that they meet the standard described in [this section](#required-datasets-architecture)
+#### Datasets :
+Four slots (and theorically a fivth, not functionnal so far): (the project contains the four original CSV datasets it has been developped with)
+- `data_x`: income_per_person_gdppercapita_ppp_inflation_adjusted.csv [PPP stands for purchasing power parity](https://en.wikipedia.org/wiki/Purchasing_power_parity)
+- `data_y`: life_expectancy_years.csv
+- `data_point_size`: population_total.csv
+- `extra_data_x`: Gini_coefficient.csv [Wikipedia page](https://en.wikipedia.org/wiki/Gini_coefficient)
+
+As said before, it is possible to replace these datasets (provided that they meet the standard described in [this section](#required-datasets-architecture) ). Make sure your data_cleaning for each dataset work properly, otherwise the program will fail.
 	
-## Development
+## Development Process : how this project born and evolved
+### Context
