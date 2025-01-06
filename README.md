@@ -10,6 +10,11 @@ Initially applied to datasets comparing **Gross Domestic Product (GDP) per capit
 Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be pre-processed and cleaned to meet the following structure:
 - The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
 - The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
+For instance :
+|Country     | 1800 | 1801 | 1802
+|Afghanistan | 28.2 | 28.2 | 28.2
+|Albania     | 27   | 27   | 27
+
 
 While automation for data cleaning is not included, following this structure ensures compatibility with the tool's framework. Data cleaning is essential for ensuring the presence of overlapping time periods across datasets (especially for `data_x`, `data_y`, and `data_point_size`).
 
