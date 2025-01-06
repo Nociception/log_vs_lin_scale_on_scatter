@@ -12,6 +12,7 @@ Designed with modularity in mind, the tool can handle any structured dataset. Ho
 - The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
 For instance :
 |Country     | 1800 | 1801 | 1802
+|------------|------|------|-----
 |Afghanistan | 28.2 | 28.2 | 28.2
 |Albania     | 27   | 27   | 27
 
