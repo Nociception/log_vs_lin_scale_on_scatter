@@ -10,7 +10,7 @@ Initially applied to datasets comparing **Gross Domestic Product (GDP) per capit
 Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be pre-processed and cleaned to meet the following structure:
 - The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
 - The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
-For instance :
+### For instance :
 | country     |   1800 |   1801 |   1802 |   1803 |
 |:------------|-------:|-------:|-------:|-------:|
 | Afghanistan |   28.2 |   28.2 |   28.2 |   28.2 |
