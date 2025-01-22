@@ -61,7 +61,7 @@ While automation for data cleaning is not included, following this structure ens
    ```
 
 ### **Initial settings (main function)**
-Most of adjustable parameters are in the main function :
+Most of adjustable parameters are in the main function. Read the main's docstring for more details.
 
 #### Datasets :
 Four slots (and theorically a fivth, not functionnal so far): (the project contains the four original CSV datasets it has been developped with)
