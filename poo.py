@@ -2331,6 +2331,27 @@ def main() -> None:
         - Configures the matplotlib window and its elements.
         - Optionally enables autoplay.
         - Displays the application window.
+
+    Most of all adjustable parameters lie her.
+        For all add_data* or add_extra_data* methods:
+    	- data_file_name
+       	- `short_name`
+       	- `axis_label`
+       	- `unit`
+    	- specific parameter for add_data_point_size:
+            `divider`; adjust it according to reach a proper point size.
+        Set the title in the `add_title` method.
+        Set the part of your data you want to study in
+            the `add_timediv_range` method.
+        Set the very important parameter `common_column`
+            (necessary to merge the datasets)
+            in the `add_common_column` method.
+        Set the animation parameters:
+            - `auto_play` in the `set_autoplay_at_start` method
+                (`True` or `False`)
+            - speed in the the `set_interval_between_two_frames` method
+                in milliseconds.
+            
     """
 
     try:
@@ -2381,6 +2402,7 @@ def main() -> None:
         exo03.build_mpl_window()
         exo03.update()
         exo03.set_right_side_graphs_cursors()
+
         exo03.set_autoplay_at_start(True)
         exo03.set_interval_between_two_frames(200)
 
