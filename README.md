@@ -25,11 +25,11 @@ While automation for data cleaning is not included, following this structure ens
 ## **Key Features**
 - **Interactive Scatter Plots**:
   - Two simultaneous visualizations with regression line:
-    - **Logarithmic scale** (top section of the figure).
-    - **Linear scale** (bottom section of the figure).
+    - **Logarithmic scale** (top left section of the figure).
+    - **Linear scale** (bottom left section of the figure).
   
 - **Dynamic Correlation and P-Values**:
-  - Computation and display of correlation coefficients and p-values for all available time periods.
+  - Computation and display of correlation coefficients and p-values for all available time periods (right sections of the figure).
 
 - **Annotations and Highlighting**:
   - Hover over points or curves for detailed annotations.
@@ -46,18 +46,25 @@ While automation for data cleaning is not included, following this structure ens
 ### **Installation**
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/data-visualization-tool.git
-   cd data-visualization-tool
+   git clone https://github.com/Nociception/undisclosed_repo.git
+   cd undisclosed_repo
    ```
 
-2. Install the required dependencies:
+2. Install the required dependencies (maybe in a virtual environment):
+   (Optional but recommended) creating your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your system):
+   ```bash
+   python3 -m venv env
+   source env/bin/activate
+   ```
+
+   (Mandatory) install all dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the tool:
+4. Run the tool:
    ```bash
-    python main.py
+    python3 poo.py
    ```
 
 ### **Initial settings (main function)**
@@ -70,7 +77,12 @@ Four slots (and theorically a fivth, not functionnal so far): (the project conta
 - `data_point_size`: population_total.csv
 - `extra_data_x`: Gini_coefficient.csv [Wikipedia page](https://en.wikipedia.org/wiki/Gini_coefficient)
 
-As said before, it is possible to replace these datasets (provided that they meet the standard described in [this section](#required-datasets-architecture) ). Make sure your data_cleaning for each dataset work properly, otherwise the program will fail.
+As said before, it is possible to replace these datasets (provided that they meet the standard described in [this section](#required-datasets-architecture)). Make sure your data_cleaning for each dataset work properly, otherwise the program will fail.
 	
 ## Development Process : how this project born and evolved
 ### Context
+The big class within the code is named Day02Ex03: the exercise 03 of the day 02 of the "python for datascience" [42](https://42.fr/)'s piscine. This exercise gives us two csv ([income_per_person_gdppercapita_ppp_inflation_adjusted](income_per_person_gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](life_expectancy.csv)), and asks to plot a scatter_plot such as [expected.jpg](expected.jpg), with GDP on X (log scale) and life_expectancy on Y. Eventually, we are informally asked if we see any correlation.
+### Cascade
+After I quite quickly solved the exercise, not calculating any correlation indicator was a bit shame. And it started a kind of a spiral: what about doing this (calculating it!), and that (for every year) and then that (being able to read each point's details)..., it came to this result (which I propably will improve again and again).
+### GDP per capita may be insufficient ?
+As this data is a mean for each country, I wondered how I could add any nuance (especially for points with a large GDP per capita without high life expectancy): colors according to a new data concerning wealth distribution. I then chose the Gini coefficient, which is unfortunatly not calculated for so many countries and years.
