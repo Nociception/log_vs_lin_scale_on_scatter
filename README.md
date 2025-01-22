@@ -1,16 +1,17 @@
-# **Logarithmic scale VS Linear scale**
+# **Logarithmic VS Linear scale**
 
 ## **Overview**
-This project demonstrates the impact of choosing a logarithmic or linear scale when visualizing data.
+Realize the impact of choosing a logarithmic or linear scale when visualizing data and calculating statiscical indicators.
+
 It provides an interactive tool to explore and compare data across different scales, emphasizing how each representation leads to unique patterns and insights.
 
-Initially applied to datasets comparing **Gross Domestic Product (GDP) per capita** and **life expectancy**, the tool includes additional data such as population, and Gini coefficient to highlight the socio-economic disparities hidden behind national averages.
+Initially applied to datasets comparing **Gross Domestic Product (GDP) per capita** and **life expectancy**, the tool includes additional data such as population, and Gini coefficient.
 
 ### **Required Datasets Architecture**
 Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be pre-processed and cleaned to meet the following structure:
 - The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
 - The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
-#### For instance :
+#### For instance:
 | country     |   1800 |   1801 |   1802 |   1803 |
 |:------------|-------:|-------:|-------:|-------:|
 | Afghanistan |   28.2 |   28.2 |   28.2 |   28.2 |
