@@ -51,6 +51,7 @@ While automation for data cleaning is not included, following this structure ens
    ```
 
 2. Install the required dependencies (maybe in a virtual environment):
+
    (Optional but recommended) creating your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your system):
    ```bash
    python3 -m venv env
@@ -62,7 +63,7 @@ While automation for data cleaning is not included, following this structure ens
    pip install -r requirements.txt
    ```
 
-4. Run the tool:
+3. Run the tool:
    ```bash
     python3 poo.py
    ```
