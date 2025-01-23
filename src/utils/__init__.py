@@ -24,6 +24,7 @@ from .conversions import (  # noqa: F401
     put_kmb_suffix
 )
 from .get_data_name import get_data_name  # noqa: F401
+from .load_csv import load  # noqa: F401
 
 __all__ = [
     name

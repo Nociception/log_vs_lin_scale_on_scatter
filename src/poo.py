@@ -19,22 +19,8 @@ by switching on 0 or 1 the second condition in the if
 (in this line (35th) `if debug and 1:`)
 """
 
-# Uncomment any function you choose tu use.
-# The commented ones are not used by default.
-from utils import (
-    # debug,
-    # debug_decorator,
-    # timediv_test_value,
-    # target_test_value,
-    cust_suffixed_string_to_float,
-    dict_printer,
-    get_data_name,
-    put_kmb_suffix,
-    var_print_str
-)
 
 from fuzzywuzzy import process
-from load_csv import load
 
 import matplotlib
 from matplotlib.animation import FuncAnimation
@@ -54,6 +40,21 @@ import pandas as pd
 from scipy.stats import linregress
 from typing import Callable
 import typeguard
+
+# Uncomment any function you choose tu use.
+# The commented ones are not used by default.
+from utils import (
+    # debug,
+    # debug_decorator,
+    # timediv_test_value,
+    # target_test_value,
+    cust_suffixed_string_to_float,
+    dict_printer,
+    get_data_name,
+    put_kmb_suffix,
+    var_print_str,
+    load
+)
 
 if matplotlib.get_backend() != 'TkAgg':
     matplotlib.use('TkAgg')
