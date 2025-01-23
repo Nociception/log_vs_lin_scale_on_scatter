@@ -38,11 +38,14 @@ Take a look at the [commands](Makefile).
    make
    ```
 
+---
+
+# Extended use
 ## **Initial settings (main function)**
 Most of adjustable parameters are in the main function. Read the main's docstring for more details.
 
 ## **Required Datasets Architecture**
-Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must retrieved from .csv files, and be pre-processed and cleaned to meet the following structure:
+Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be retrieved from .csv files, and be pre-processed and cleaned to meet the following structure:
 - The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
 - The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
 ### For instance:
@@ -94,5 +97,5 @@ The big class within the code is named Day02Ex03: [the exercise 03 of the day 02
 After I quite quickly solved the exercise, not calculating any correlation indicator was a bit shame to me. And it started a kind of a spiral: what about doing this (calculating it!), and that (for every year) and then that (being able to read each point's details), and that (using the [population.csv file](data/population.csv) to set the points' size)..., it came to this result (which I propably will improve again and again).
 
 ![Bob the sponge "So many possibilities" meme](assets/so-many-possibilities-meme.jpg)
-### GDP per capita may be insufficient ?
+## GDP per capita may be insufficient ?
 As this data is a mean for each country, I wondered how I could add any nuance (especially for points with a large GDP per capita without high life expectancy): colors according to a new data concerning wealth distribution. I then chose the Gini coefficient, which is unfortunatly not calculated for so many countries/years, and also not perfect (other indicators were also possible, such as Theil index, or Hover index).
