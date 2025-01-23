@@ -2358,24 +2358,24 @@ def main() -> None:
         exo03 = Day02Ex03()
 
         exo03.add_data_x_path(
-            "../data/gdppercapita_ppp_inflation_adjusted.csv",
+            "data/gdppercapita_ppp_inflation_adjusted.csv",
             short_name="GDP per capita",
             x_label="Gross Domestic Product per capita at PPP",
             x_unit="USD"
         )
         exo03.add_data_y_path(
-            "../data/life_expectancy_years.csv",
+            "data/life_expectancy_years.csv",
             short_name="life_expectancy",
             y_label="Life expectancy",
             y_unit="year"
         )
         exo03.add_data_point_size_path(
-            "../data/population_total.csv",
+            "data/population_total.csv",
             short_name="population",
             divider=1e6
         )
         exo03.add_extra_data_x_path(
-            "../data/Gini_coefficient.csv",
+            "data/Gini_coefficient.csv",
             short_name="Gini coefficient"
         )
         # exo03.add_extra_data_y_path(
