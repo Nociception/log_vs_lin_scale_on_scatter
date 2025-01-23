@@ -62,8 +62,8 @@ def main() -> None:
 
         exo03.add_data_x_path(
             "data/gdppercapita_ppp_inflation_adjusted.csv",
-            short_name="GDP per capita",
-            x_label="Gross Domestic Product per capita at PPP",
+            short_name="GDP per capita inflation adjusted at PPP",
+            x_label="GDP per capita inflation adjusted at PPP",
             x_unit="USD"
         )
         exo03.add_data_y_path(

@@ -1,7 +1,7 @@
 .PHONY: run create-virtual-env install
 
 run:
-	python3 src/poo.py
+	python3 src/main.py
 
 create-virtual-env:
 	python3 -m venv env
