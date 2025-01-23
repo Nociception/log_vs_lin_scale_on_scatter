@@ -85,7 +85,7 @@ As said before, it is possible to replace these datasets (provided that they mee
 	
 ## Development Process : how this project born and evolved
 ### Context
-The big class within the code is named Day02Ex03: the exercise 03 of the day 02 of the "python for datascience" [42](https://42.fr/)'s piscine. This exercise gives us two csv ([income_per_person_gdppercapita_ppp_inflation_adjusted](income_per_person_gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](life_expectancy.csv)), and asks to plot a scatter_plot such as [expected.jpg](expected.jpg), with GDP on X (log scale) and life_expectancy on Y. Eventually, we are informally asked if we see any correlation.
+The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two csv ([income_per_person_gdppercapita_ppp_inflation_adjusted](income_per_person_gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](life_expectancy.csv)), and asks to plot a scatter_plot such as [expected.jpg](expected.jpg), with GDP on X (log scale) and life_expectancy on Y. Eventually, we are informally asked if we see any correlation.
 ### Cascade
 After I quite quickly solved the exercise, not calculating any correlation indicator was a bit shame. And it started a kind of a spiral: what about doing this (calculating it!), and that (for every year) and then that (being able to read each point's details)..., it came to this result (which I propably will improve again and again).
 
