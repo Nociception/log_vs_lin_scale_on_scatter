@@ -21,7 +21,7 @@ Take a look at the [commands](Makefile).
    cd log_vs_lin_scale_on_scatter
    ```
 
-2. Install the required dependencies (maybe in a virtual environment):
+2. Install the required dependencies (maybe in a **virtual environment**):
 
    (Optional but recommended) creating your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your system):
    ```bash
@@ -87,7 +87,7 @@ As said before, it is possible to replace these datasets (provided that they mee
 
 # Development Process : how this project born and evolved
 ## Context
-The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two csv ([gdppercapita_ppp_inflation_adjusted](data/gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](data/life_expectancy.csv)), and asks to plot a scatter plot, with GDP on X (log scale) and life expectancy on Y. Eventually, we are informally asked if we see any correlation.
+The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two CSV ([gdppercapita_ppp_inflation_adjusted](data/gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](data/life_expectancy.csv)), and asks to plot a scatter plot, with GDP on X (log scale) and life expectancy on Y. Eventually, we are informally asked if we see any correlation.
 
 ![expected.jpg](assets/expected.jpg)
 ## Spiral
