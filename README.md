@@ -1,5 +1,5 @@
 # **Overview**
-Realize the impact of choosing a logarithmic or linear scale when visualizing data and calculating statiscical indicators.
+Realize the impact of choosing a logarithmic or linear scale when visualizing data and calculating statiscical indicators ; see both at once !
 
 It provides an interactive tool to explore and compare data across different scales, emphasizing how each representation leads to unique patterns and insights.
 
@@ -23,7 +23,7 @@ Take a look at the [commands](Makefile).
 
 2. Install the required dependencies (maybe in a **virtual environment**):
 
-   (Optional but recommended) creating your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your system):
+   (Optional but recommended) Create your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your local system):
    ```bash
    make create-virtual-env
    ```
