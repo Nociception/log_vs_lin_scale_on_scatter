@@ -7,25 +7,11 @@ Initially applied to datasets comparing **Gross Domestic Product (GDP) per capit
 
 ![preview gif](assets/preview.gif)
 
-## **Required Datasets Architecture**
-Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be pre-processed and cleaned to meet the following structure:
-- The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
-- The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
-### For instance:
-| country     |   1800 |   1801 |   1802 |   1803 |
-|:------------|-------:|-------:|-------:|-------:|
-| Afghanistan |   28.2 |   28.2 |   28.2 |   28.2 |
-| Albania     |   35.4 |   35.4 |   35.4 |   35.4 |
-| Algeria     |   28.8 |   28.8 |   28.8 |   28.8 |
-
-
-While automation for data cleaning is not included, following this structure ensures compatibility with the tool's framework. Data cleaning is essential for ensuring the presence of overlapping time periods across datasets (especially for `data_x`, `data_y`, and `data_point_size`).
-
 ---
 
 # **Getting Started**
 
-### **Installation and running**
+## **Installation and running**
 Note: most of these steps are managed with a Makefile.
 Take a look at the [commands](Makefile).
 
@@ -54,6 +40,20 @@ Take a look at the [commands](Makefile).
 
 ## **Initial settings (main function)**
 Most of adjustable parameters are in the main function. Read the main's docstring for more details.
+
+## **Required Datasets Architecture**
+Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must retrieved from .csv files, and be pre-processed and cleaned to meet the following structure:
+- The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
+- The **remaining columns** should represent time periods, with headers as time intervals and bodies containing the respective data.
+### For instance:
+| country     |   1800 |   1801 |   1802 |   1803 |
+|:------------|-------:|-------:|-------:|-------:|
+| Afghanistan |   28.2 |   28.2 |   28.2 |   28.2 |
+| Albania     |   35.4 |   35.4 |   35.4 |   35.4 |
+| Algeria     |   28.8 |   28.8 |   28.8 |   28.8 |
+
+
+While automation for data cleaning is not included, following this structure ensures compatibility with the tool's framework. Data cleaning is essential for ensuring the presence of overlapping time periods across datasets (especially for `data_x`, `data_y`, and `data_point_size`).
 
 ### Datasets :
 Four slots (and theorically a fivth, not functionnal so far): (the project contains the four original CSV datasets it has been developped with)
