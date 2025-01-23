@@ -17,7 +17,12 @@ from utils import debug, put_kmb_suffix
 """
 
 
-from .debug import debug, debug_decorator  # noqa: F401
+from .debug import (  # noqa: F401
+    debug,
+    debug_decorator,
+    timediv_test_value,
+    target_test_value 
+)
 from .helpers import dict_printer, var_print_str  # noqa: F401
 from .conversions import (  # noqa: F401
     cust_suffixed_string_to_float,
