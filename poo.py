@@ -2391,7 +2391,7 @@ def main() -> None:
         exo03.add_timediv_range(
             start=1800,
             stop=2050,
-            init_value=1900,
+            init_value=1950,
             type="year",
         )
         exo03.add_common_column('country')
