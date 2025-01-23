@@ -7,7 +7,7 @@ It provides an interactive tool to explore and compare data across different sca
 
 Initially applied to datasets comparing **Gross Domestic Product (GDP) per capita** and **life expectancy**, the tool includes additional data such as population, and Gini coefficient.
 
-<!-- ![preview gif](preview.gif) -->
+![preview gif](preview.gif)
 
 ### **Required Datasets Architecture**
 Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be pre-processed and cleaned to meet the following structure:
