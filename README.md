@@ -92,8 +92,8 @@ As said before, it is possible to replace these datasets (provided that they mee
 The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two csv ([gdppercapita_ppp_inflation_adjusted](data/gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](data/life_expectancy.csv)), and asks to plot a scatter plot, with GDP on X (log scale) and life expectancy on Y. Eventually, we are informally asked if we see any correlation.
 
 ![expected.jpg](assets/expected.jpg)
-### Cascade
-After I quite quickly solved the exercise, not calculating any correlation indicator was a bit shame to me. And it started a kind of a spiral: what about doing this (calculating it!), and that (for every year) and then that (being able to read each point's details)..., it came to this result (which I propably will improve again and again).
+### Spiral
+After I quite quickly solved the exercise, not calculating any correlation indicator was a bit shame to me. And it started a kind of a spiral: what about doing this (calculating it!), and that (for every year) and then that (being able to read each point's details), and that (using the [population.csv file](data/population.csv) to set the points' size)..., it came to this result (which I propably will improve again and again).
 
 ![Bob the sponge "So many possibilities" meme](assets/so-many-possibilities-meme.jpg)
 ### GDP per capita may be insufficient ?
