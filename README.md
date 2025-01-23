@@ -89,7 +89,7 @@ As said before, it is possible to replace these datasets (provided that they mee
 
 ## Development Process : how this project born and evolved
 ### Context
-The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two csv ([gdppercapita_ppp_inflation_adjusted](data/gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](data/life_expectancy.csv)), and asks to plot a scatter_plot, with GDP on X (log scale) and life_expectancy on Y. Eventually, we are informally asked if we see any correlation.
+The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two csv ([gdppercapita_ppp_inflation_adjusted](data/gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](data/life_expectancy.csv)), and asks to plot a scatter plot, with GDP on X (log scale) and life expectancy on Y. Eventually, we are informally asked if we see any correlation.
 
 ![expected.jpg](assets/expected.jpg)
 ### Cascade
@@ -97,4 +97,4 @@ After I quite quickly solved the exercise, not calculating any correlation indic
 
 ![Bob the sponge "So many possibilities" meme](assets/so-many-possibilities-meme.jpg)
 ### GDP per capita may be insufficient ?
-As this data is a mean for each country, I wondered how I could add any nuance (especially for points with a large GDP per capita without high life expectancy): colors according to a new data concerning wealth distribution. I then chose the Gini coefficient, which is unfortunatly not calculated for so many countries and years.
+As this data is a mean for each country, I wondered how I could add any nuance (especially for points with a large GDP per capita without high life expectancy): colors according to a new data concerning wealth distribution. I then chose the Gini coefficient, which is unfortunatly not calculated for so many countries/years, and also not perfect (other indicators were also possible, such as Theil index, or Hover index).
