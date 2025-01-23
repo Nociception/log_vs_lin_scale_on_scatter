@@ -10,11 +10,11 @@ by switching on 0 or 1 the second condition in the if
 from classes import Day02Ex03
 import matplotlib
 import typeguard
-from utils import (
-    debug,  # noqa: F401
-    debug_decorator,  # noqa: F401
-    timediv_test_value,  # noqa: F401
-    target_test_value,  # noqa: F401
+from utils import (  # noqa: F401
+    debug,
+    debug_decorator,
+    timediv_test_value,
+    target_test_value,
 )
 # noqa: F401 is used to silence flake8
 # These functions are not used by default,
@@ -38,11 +38,11 @@ def main() -> None:
 
     Most of all adjustable parameters lie her.
         For all add_data* or add_extra_data* methods:
-    	- data_file_name
-       	- `short_name`
-       	- `axis_label`
-       	- `unit`
-    	- specific parameter for add_data_point_size:
+        - data_file_name
+        - `short_name`
+        - `axis_label`
+        - `unit`
+        - specific parameter for add_data_point_size:
             `divider`; adjust it according to reach a proper point size.
         Set the title in the `add_title` method.
         Set the part of your data you want to study in
@@ -55,7 +55,6 @@ def main() -> None:
                 (`True` or `False`)
             - speed in the the `set_interval_between_two_frames` method
                 in milliseconds.
-            
     """
 
     try:

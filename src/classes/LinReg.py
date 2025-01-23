@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class LinReg:
     """
     Represents the results of a linear regression analysis.
