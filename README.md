@@ -46,29 +46,31 @@ While automation for data cleaning is not included, following this structure ens
 
 ## **Getting Started**
 
-### **Installation**
+### **Installation and running**
+Note: most of these steps are managed with a Makefile.
+Take a look at the [commands](Makefile).
+
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Nociception/undisclosed_repo.git
-   cd undisclosed_repo
+   git clone https://github.com/Nociception/log_vs_lin_scale_on_scatter.git
+   cd log_vs_lin_scale_on_scatter
    ```
 
 2. Install the required dependencies (maybe in a virtual environment):
 
    (Optional but recommended) creating your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your system):
    ```bash
-   python3 -m venv env
-   source env/bin/activate
+   make create-virtual-env
    ```
 
    (Mandatory) install all dependencies:
    ```bash
-   pip install -r requirements.txt
+   make install
    ```
 
 3. Run the tool:
    ```bash
-    python3 poo.py
+   make
    ```
 
 ### **Initial settings (main function)**
