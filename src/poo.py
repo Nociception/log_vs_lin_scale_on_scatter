@@ -12,20 +12,30 @@ After a ctr+clic on a function/method,
 navigate back with the keyboard short cut: ctrl alt -
 
 Enable or disable debugging:
-in the debug function,
+in the debug function (defined here: src/utils/debug.py)
+(on VSCode, ctrl + Clic on the `debug` word just above to
+reach its definition),
 by switching on 0 or 1 the second condition in the if
-(if debug and 1:)
-
-Still to do:
-- readme
-- video
-- LinkedIn presentation
+(in this line (35th) `if debug and 1:`)
 """
 
-from functools import wraps
+# Uncomment any function you choose tu use.
+# The commented ones are not used by default.
+from utils import (
+    # debug,
+    # debug_decorator,
+    # timediv_test_value,
+    # target_test_value,
+    cust_suffixed_string_to_float,
+    dict_printer,
+    get_data_name,
+    put_kmb_suffix,
+    var_print_str
+)
+
 from fuzzywuzzy import process
-import inspect
 from load_csv import load
+
 import matplotlib
 from matplotlib.animation import FuncAnimation
 from matplotlib.axes import Axes
@@ -38,6 +48,7 @@ from matplotlib.cm import ScalarMappable
 from matplotlib.widgets import Slider, TextBox, Button
 from matplotlib.colors import Normalize, LinearSegmentedColormap
 import mplcursors
+
 import numpy as np
 import pandas as pd
 from scipy.stats import linregress
@@ -46,208 +57,6 @@ import typeguard
 
 if matplotlib.get_backend() != 'TkAgg':
     matplotlib.use('TkAgg')
-
-
-def debug(
-    function_name: str,
-    debug: int,
-    step="START"
-) -> None:
-    """
-    Prints debug information for a function,
-    including its name and the current step (if written).
-
-    Usage:
-        Copy the line below the if 0 into any function
-        for debugging.
-        No need to write on your own the function name.
-        You also can specify a STEP about the function/method
-        instructions.
-
-    Parameters:
-        function_name (str):
-            The name of the function to debug.
-        debug (int):
-            The debug level. If non-zero, the debug information is printed.
-        step (str):
-            The current step in the function's execution
-            (e.g., "START" or "END").
-    """
-
-    if 0:  # Do not switch to 1.
-        debug(inspect.currentframe().f_code.co_name, 1)  # copy this line
-
-    if debug and 1:
-        print(f"DEBUG: {step} current function -> {function_name}")
-
-
-def debug_decorator(func: Callable) -> Callable:
-    """
-    A decorator to print debug information
-    before and after a function's execution.
-
-    Parameters:
-        func (Callable): The function to wrap with debug logging.
-
-    Usage:
-        Copy that:
-            @debug_decorator
-        above a function/method definition.
-
-    Returns:
-        Callable: The wrapped function with debug logging enabled.
-    """
-
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        function_name = func.__name__
-        debug_level = 1
-        if debug_level:
-            print(f"DEBUG: START current function -> {function_name}")
-        result = func(*args, **kwargs)
-        if debug_level:
-            print(f"DEBUG: END current function -> {function_name}")
-        return result
-    return wrapper
-
-
-def timediv_test_value():
-    """
-    As we were told not to use any global variable,
-    here is this "function" useful for debug.
-    """
-
-    return 1800
-
-
-def target_test_value():
-    """
-    As we were told not to use any global variable,
-    here is this "function" useful for debug.
-    """
-
-    return "Norway"
-
-
-def cust_suffixed_string_to_float(value) -> float:
-    """
-    Converts a string with custom suffixes (k, M, B) to a float.
-
-    Parameters:
-        value (str or numeric):
-        The input value to convert.
-        Strings can have suffixes 'k', 'M', or 'B'.
-
-    Returns:
-        float: The numeric value after conversion,
-        or NaN if conversion fails.
-    """
-
-    factors = {'k': 1e3, 'M': 1e6, 'B': 1e9}
-    try:
-        if isinstance(value, str) and value[-1] in factors:
-            return float(value[:-1]) * factors[value[-1]]
-        return float(value)
-    except (ValueError, TypeError):
-        return np.nan
-
-
-def dict_printer(
-    d: dict,
-    values_type: str,
-    head_value: int = 5
-) -> None:
-    """
-    Prints the contents of a dictionary based on the type of its values.
-
-    Parameters:
-        d (dict):
-            The dictionary to print.
-        values_type (str):
-            The expected type of the dictionary's values
-            ("pd.DataFrame", "cust class", or others).
-        head_value (int):
-            For DataFrame values, the number of rows to display.
-            Must be greater than 0.
-    """
-
-    if d is None:
-        print("The dictionnary does not exist.")
-        return None
-
-    if values_type == "pd.DataFrame":
-        if head_value < 1:
-            print("head_value must be greater than 0.")
-            return None
-        for key, value in d.items():
-            if value is not None:
-                print(f"{key}:\n{value}\n")
-
-    elif values_type == "cust class":
-        for _, value in d.items():
-            if value is not None:
-                value.show()
-
-    else:
-        for key, value in d.items():
-            print(f"{key}: {value}")
-
-
-def get_data_name(file_name: str) -> str:
-    """
-    Extracts the base name from a file path,
-    removing the extension and replacing underscores with spaces.
-
-    Parameters:
-        file_name (str): The full file path or name.
-
-    Returns:
-        str: The extracted base name with spaces instead of underscores.
-    """
-
-    extension = file_name[file_name.index('.'):]
-    return file_name[:file_name.index(extension)].replace('_', ' ')
-
-
-def put_kmb_suffix(val: float) -> str:
-    """
-    Converts a numeric value to a string with
-    'k', 'M', or 'B' suffix for thousands, millions, or billions.
-
-    Parameters:
-        val (float): The numeric value to convert.
-
-    Returns:
-        str: The formatted string with an appropriate suffix,
-        or the original number as a string if below 1,000.
-    """
-
-    for threshold, suffix in [
-        (1e9, 'B'), (1e6, 'M'), (1e3, 'k')
-    ]:
-        if val > threshold:
-            return f"{val / threshold:.2f}{suffix}"
-    return str(val)
-
-
-def var_print_str(
-    var_name: str,
-    var_value
-) -> str:
-    """
-    Formats a variable's name and value as a string, including its type.
-
-    Parameters:
-        var_name (str): The name of the variable.
-        var_value (Any): The value of the variable.
-
-    Returns:
-        str:
-            A string representation of
-            the variable's name, value, and type.
-    """
-
-    return f"{var_name}:{var_value} ({type(var_value)})\n"
 
 
 class LinReg:
@@ -851,7 +660,7 @@ class Day02Ex03:
         self.y_label: str | None = None
         self.y_unit: str | None = None
 
-        # definetly set that way (adjustable in future versions)
+        # permanently set that way (adjustable in future versions)
         self.colored_extra_data: str = "extra_data_x"
 
     def show(self):
@@ -2391,7 +2200,7 @@ def main() -> None:
         exo03.add_timediv_range(
             start=1800,
             stop=2050,
-            init_value=1950,
+            init_value=1900,
             type="year",
         )
         exo03.add_common_column('country')
