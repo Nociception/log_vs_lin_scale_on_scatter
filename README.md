@@ -17,8 +17,7 @@ Take a look at the [commands](Makefile).
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Nociception/log_vs_lin_scale_on_scatter.git
-   cd log_vs_lin_scale_on_scatter
+   git clone https://github.com/Nociception/log_vs_lin_scale_on_scatter.git ; cd log_vs_lin_scale_on_scatter
    ```
 
 2. Install the required dependencies (maybe in a **virtual environment**):
