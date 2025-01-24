@@ -120,7 +120,10 @@ class DataFrame:
                 " attempted which needs the DataFrame to be cleaned"
                 " before."
         ):
-            """DOCSTRING"""
+            """
+            Initializes an instance of a DataFrameNotCleanedException
+            class object, with the `msg` received as parameter.
+            """
 
             super().__init__(msg)
 
