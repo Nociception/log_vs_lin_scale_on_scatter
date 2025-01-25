@@ -6,9 +6,10 @@ VSCode allows this feature with the little arrow between the line
 number and the beginning of the foldable line.
 Try with this triple quoted string!
 Global code blocks folding (available on VSCode):
-ctrl+K then ctrl+[indent level ; I suggest 2 for this file]
+ctrl+K (keep ctrl pressed after K)
+then ctrl+[indent level ; I suggest 2 for this file]
 
-After a ctr+clic on a function/method,
+After a ctr+clic on a function/method to see its definition,
 navigate back with the keyboard short cut: ctrl alt -
 """
 
@@ -16,21 +17,28 @@ from .DataFrame import DataFrame
 from fuzzywuzzy import process
 from matplotlib.animation import FuncAnimation
 from matplotlib.axes import Axes
+from matplotlib.cm import ScalarMappable
+from matplotlib.collections import LineCollection
 from matplotlib.figure import Figure
-from matplotlib.colorbar import Colorbar
 import matplotlib.collections as mplcollec
 from matplotlib.collections import PathCollection
-import matplotlib.pyplot as plt
-from matplotlib.cm import ScalarMappable
-from matplotlib.widgets import Slider, TextBox, Button
+from matplotlib.colorbar import Colorbar
 from matplotlib.colors import Normalize, LinearSegmentedColormap
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+from matplotlib.widgets import Slider, TextBox, Button
 import mplcursors
 import numpy as np
 import pandas as pd
 from .TimeDiv import TimeDiv
 import typeguard
 from typing import Callable
-from utils import dict_printer, var_print_str, put_kmb_suffix
+from utils import (
+    dict_printer,
+    var_print_str,
+    put_kmb_suffix,
+    tick_label_formatter
+)
 
 
 class Day02Ex03:
@@ -735,6 +743,59 @@ class Day02Ex03:
         self.corr_lin = np.array(self.corr_lin)
         self.pvalue_lin = np.array(self.pvalue_lin)
 
+    def get_text_sizes(
+        self,
+        fig_width: float,
+        fig_height: float
+    ) -> dict:
+        """
+        Calculate text sizes dynamically based on figure dimensions.
+
+        Args:
+            fig_width (float): The current width of the figure in inches.
+            fig_height (float): The current height of the figure in inches.
+
+        Returns:
+            dict: A dictionary containing font sizes for various elements.
+        """
+
+        base_size = min(fig_width, fig_height) * 1.5
+        return {
+            "title": base_size * 1.2,
+            "label": base_size * 0.8,
+            "ticks": base_size * 0.6,
+            "annotation": base_size * 0.7,
+        }
+
+    def on_resize(self, event):
+        """
+        Handle the resize event to adjust layout and text sizes dynamically.
+
+        - Adjusts spacing between subplots based on figure size.
+        - Updates text sizes for titles, labels, and ticks.
+        """
+
+        fig_width, fig_height = self.fig.get_size_inches()
+
+        scale = min(fig_width / 10, fig_height / 6)
+        self.fig.subplots_adjust(
+            top=0.96,
+            bottom=0.1,
+            left=0.05,
+            right=0.99,
+            hspace=0.25 * scale,
+            wspace=0.2 * scale
+        )
+
+        text_sizes = self.get_text_sizes(fig_width, fig_height)
+        for _, ax in self.axes.items():
+            ax.set_title(ax.get_title(), fontsize=text_sizes["title"])
+            ax.set_xlabel(ax.get_xlabel(), fontsize=text_sizes["label"])
+            ax.set_ylabel(ax.get_ylabel(), fontsize=text_sizes["label"])
+            ax.tick_params(axis="both", labelsize=text_sizes["ticks"])
+
+        self.fig.canvas.draw_idle()
+
     def build_fig_axes(self) -> None:
         """
         Sets up the main figure and axes for visualization.
@@ -753,32 +814,28 @@ class Day02Ex03:
         self.fig, self.axes = plt.subplot_mosaic(
             [
                 ["log", "log", "log", "corr_log"],
+                ["log", "log", "log", "corr_log"],
+                ["log", "log", "log", "corr_diff"],
+                ["lin", "lin", "lin", "corr_diff"],
+                ["lin", "lin", "lin", "corr_lin"],
                 ["lin", "lin", "lin", "corr_lin"],
             ],
             figsize=(fig_w, fig_h)
         )
 
-        def on_resize(event):
-            fig_width, fig_height = self.fig.get_size_inches()
-            scale = min(fig_width / fig_w, fig_height / fig_h)
-            self.fig.subplots_adjust(
-                top=0.96,
-                bottom=0.1,
-                left=0.05,
-                right=0.99,
-                hspace=0.13 * scale,
-                wspace=0.2 * scale
-            )
-            plt.draw()
+        ticks_labelticks_space = 1
+        for ax in self.axes.values():
+            ax.tick_params(axis='x', pad=ticks_labelticks_space)
+            ax.tick_params(axis='y', pad=ticks_labelticks_space)
 
-        self.fig.canvas.mpl_connect('resize_event', on_resize)
+        self.fig.canvas.mpl_connect('resize_event', self.on_resize)
 
         self.fig.subplots_adjust(
             top=0.96,
             bottom=0.1,
             left=0.05,
             right=0.99,
-            hspace=0.13,
+            hspace=0.25,
             wspace=0.2
         )
 
@@ -828,7 +885,7 @@ class Day02Ex03:
             aspect=aspect
         )
         self.cbar.set_label(
-            label=extra_data.data_name,
+            label=extra_data.short_name,
             labelpad=labelpad
         )
         self.cbar.ax.yaxis.set_label_position(label_position)
@@ -1016,6 +1073,9 @@ class Day02Ex03:
         else:
             ax.set_xlabel(f"{self.x_label} ({self.x_unit})")
         ax.set_ylabel(f"{self.y_label} ({self.y_unit})")
+
+        ax.xaxis.set_major_formatter(FuncFormatter(tick_label_formatter))
+        ax.xaxis.set_major_formatter(FuncFormatter(tick_label_formatter))
 
         ax.legend(loc="best")
 
@@ -1423,6 +1483,7 @@ class Day02Ex03:
 
         curve_labels = {
             "corr_log": ["corr log", "pvalue log"],
+            "corr_diff": ["corr_diff"],
             "corr_lin": ["corr lin", "pvalue lin"],
         }
 
@@ -1474,11 +1535,10 @@ class Day02Ex03:
                                 visibility and clarity.
                             """
                             x, y = sel.target
-                            annotation = (
-                                "Corr" if "corr" in label else "Pval"
-                            )
+
                             sel.annotation.set(
-                                text=f"Year: {x:.0f}\n{annotation}: {y:.4f}",
+                                text=f"{self.timediv_type}: "
+                                f"{x:.0f}\n{label.title()}: {y:.4f}",
                                 fontsize=10,
                                 fontweight="bold",
                             )
@@ -1528,6 +1588,87 @@ class Day02Ex03:
             f"Track {self.common_column}"
         )
         self.text_box_tracker.on_submit(self.add_tracker)
+
+    def set_and_plot_corr_diff(self) -> None:
+        """
+        Plots the absolute difference between log and linear correlations.
+        Colors the segments based on which correlation is dominant.
+        """
+
+        if (
+            self.corr_log is None
+            or self.corr_lin is None
+            or self.timediv_range is None
+        ):
+            raise ValueError(
+                "Error: Missing data: corr_log, corr_lin, or timediv_range"
+            )
+
+        corr_log = np.array(self.corr_log, dtype=float)
+        corr_lin = np.array(self.corr_lin, dtype=float)
+
+        if (
+            len(corr_log) != len(corr_lin)
+            or len(corr_log) != len(self.timediv_range)
+        ):
+            raise ValueError(
+                "Error: Mismatched lengths of "
+                "corr_log, corr_lin, or timediv_range"
+            )
+
+        abs_diff = np.abs(corr_log - corr_lin)
+        is_log_dominant = corr_log > corr_lin
+
+        x_values = np.array(list(self.timediv_range))
+
+        ax = self.axes["corr_diff"]
+
+        ax.plot(x_values, abs_diff, color="blue", label="corr_diff")
+
+        segments = []
+        colors = []
+        for i in range(len(x_values) - 1):
+            x_segment = x_values[i:i + 2]
+            y_segment = abs_diff[i:i + 2]
+            segments.append(list(zip(x_segment, y_segment)))
+
+            color = "red" if is_log_dominant[i] else "green"
+            colors.append(color)
+
+        lc = LineCollection(
+            segments,
+            colors=colors,
+            linewidths=2,
+            alpha=0.8
+        )
+        ax.add_collection(lc)
+
+        ax.set_xlabel(self.timediv_type, labelpad=-30)
+        ax.set_xlim(self.timediv_range.start, self.timediv_range.stop)
+        ax.set_ylabel(
+            "|Corr(log) - Corr(lin)|",
+            labelpad=-25,
+            loc="center"
+        )
+        ax.set_ylim(0, 2)
+        ax.set_yticks([0, 0.25, 1.75, 2])
+        ax.text(
+            0.5,
+            0.5,
+            f"Absolute Difference of Correlations\n"
+            f" VS {self.timediv_type}",
+            transform=ax.transAxes,
+            fontsize=10,
+            color="blue",
+            alpha=0.2,
+            ha="center",
+            va="center",
+            weight="bold",
+        )
+
+        red_patch = plt.Line2D([], [], color='red', label='log>lin')
+        green_patch = plt.Line2D([], [], color='green', label='log<lin')
+        ax.legend(handles=[red_patch, green_patch], loc='best')
 
     def set_and_plot_right_side_graph(
         self,
@@ -1608,6 +1749,7 @@ class Day02Ex03:
         self.build_tracker()
 
         self.set_and_plot_right_side_graph("log")
+        self.set_and_plot_corr_diff()
         self.set_and_plot_right_side_graph("lin")
 
         self.fig.canvas.manager.set_window_title(

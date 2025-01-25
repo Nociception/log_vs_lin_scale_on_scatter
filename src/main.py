@@ -68,7 +68,7 @@ def main() -> None:
         )
         exo03.add_data_y_path(
             "data/life_expectancy_years.csv",
-            short_name="life_expectancy",
+            short_name="life expectancy",
             y_label="Life expectancy",
             y_unit="year"
         )
