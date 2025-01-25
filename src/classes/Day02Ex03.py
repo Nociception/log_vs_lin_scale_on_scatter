@@ -17,6 +17,7 @@ from fuzzywuzzy import process
 from matplotlib.animation import FuncAnimation
 from matplotlib.axes import Axes
 from matplotlib.cm import ScalarMappable
+from matplotlib.collections import LineCollection
 from matplotlib.figure import Figure
 import matplotlib.collections as mplcollec
 from matplotlib.collections import PathCollection
@@ -1441,6 +1442,7 @@ class Day02Ex03:
 
         curve_labels = {
             "corr_log": ["corr log", "pvalue log"],
+            "corr_diff": ["corr_diff"],
             "corr_lin": ["corr lin", "pvalue lin"],
         }
 
@@ -1492,11 +1494,11 @@ class Day02Ex03:
                                 visibility and clarity.
                             """
                             x, y = sel.target
-                            annotation = (
-                                "Corr" if "corr" in label else "Pval"
-                            )
+                            
+
                             sel.annotation.set(
-                                text=f"Year: {x:.0f}\n{annotation}: {y:.4f}",
+                                text=f"{self.timediv_type}: "
+                                f"{x:.0f}\n{label.title()}: {y:.4f}",
                                 fontsize=10,
                                 fontweight="bold",
                             )
@@ -1558,41 +1560,76 @@ class Day02Ex03:
             or self.corr_lin is None
             or self.timediv_range is None
         ):
-            raise ValueError("Error: Missing data: corr_log, corr_lin, or timediv_range")
+            raise ValueError(
+                "Error: Missing data: corr_log, corr_lin, or timediv_range"
+            )
 
         corr_log = np.array(self.corr_log, dtype=float)
         corr_lin = np.array(self.corr_lin, dtype=float)
 
-        if len(corr_log) != len(corr_lin) or len(corr_log) != len(self.timediv_range):
-            raise ValueError("Error: Mismatched lengths of corr_log, corr_lin, or timediv_range")
+        if (
+            len(corr_log) != len(corr_lin)
+            or len(corr_log) != len(self.timediv_range)
+        ):
+            raise ValueError(
+                f"Error: Mismatched lengths of "
+                f"corr_log, corr_lin, or timediv_range"
+            )
 
         abs_diff = np.abs(corr_log - corr_lin)
         is_log_dominant = corr_log > corr_lin
 
-        x_values = list(self.timediv_range)
+        x_values = np.array(list(self.timediv_range))
 
         ax = self.axes["corr_diff"]
 
+        ax.plot(x_values, abs_diff, color="blue", label="corr_diff")
+
+        segments = []
+        colors = []
         for i in range(len(x_values) - 1):
             x_segment = x_values[i:i + 2]
             y_segment = abs_diff[i:i + 2]
+            segments.append(list(zip(x_segment, y_segment)))
 
             color = "red" if is_log_dominant[i] else "green"
-            ax.plot(
-                x_segment,
-                y_segment,
-                color=color,
-                linewidth=2
-            )
+            colors.append(color)
 
-        ax.set_ylim(0, 2)
-        ax.set_title(
-            f"Absolute Difference of Correlations"
-            f" VS {self.timediv_type}"
+        lc = LineCollection(
+            segments,
+            colors=colors,
+            linewidths=2,
+            alpha=0.8
         )
-        ax.set_xlabel(self.timediv_type)
-        ax.set_ylabel("|Corr(log) - Corr(lin)|")
+        ax.add_collection(lc)
 
+        ax.set_xlabel(self.timediv_type, labelpad=-30)
+        ax.set_xlim(self.timediv_range.start, self.timediv_range.stop)
+        ax.set_ylabel(
+            "|Corr(log) - Corr(lin)|",
+            labelpad=-25,
+            loc="center"
+        )
+        ax.set_ylim(0, 2)
+        ax.set_yticks([0, 0.25, 1.75, 2])
+        ax.text(
+            0.5,
+            0.5,
+            f"Absolute Difference of Correlations\n"
+            f" VS {self.timediv_type}",
+            transform=ax.transAxes,
+            fontsize=10,
+            color="blue",
+            alpha=0.2,
+            ha="center",
+            va="center",
+            weight="bold",
+        )
+
+        red_patch = plt.Line2D([], [], color='red', label='log>lin')
+        green_patch = plt.Line2D([], [], color='green', label='log<lin')
+        ax.legend(handles=[red_patch, green_patch], loc='best')
+        
     def set_and_plot_right_side_graph(
         self,
         graph: str
