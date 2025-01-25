@@ -6,9 +6,10 @@ VSCode allows this feature with the little arrow between the line
 number and the beginning of the foldable line.
 Try with this triple quoted string!
 Global code blocks folding (available on VSCode):
-ctrl+K then ctrl+[indent level ; I suggest 2 for this file]
+ctrl+K (keep ctrl pressed after K)
+then ctrl+[indent level ; I suggest 2 for this file]
 
-After a ctr+clic on a function/method,
+After a ctr+clic on a function/method to see its definition,
 navigate back with the keyboard short cut: ctrl alt -
 """
 
@@ -1494,7 +1495,6 @@ class Day02Ex03:
                                 visibility and clarity.
                             """
                             x, y = sel.target
-                            
 
                             sel.annotation.set(
                                 text=f"{self.timediv_type}: "
@@ -1572,8 +1572,8 @@ class Day02Ex03:
             or len(corr_log) != len(self.timediv_range)
         ):
             raise ValueError(
-                f"Error: Mismatched lengths of "
-                f"corr_log, corr_lin, or timediv_range"
+                "Error: Mismatched lengths of "
+                "corr_log, corr_lin, or timediv_range"
             )
 
         abs_diff = np.abs(corr_log - corr_lin)
@@ -1629,7 +1629,7 @@ class Day02Ex03:
         red_patch = plt.Line2D([], [], color='red', label='log>lin')
         green_patch = plt.Line2D([], [], color='green', label='log<lin')
         ax.legend(handles=[red_patch, green_patch], loc='best')
-        
+
     def set_and_plot_right_side_graph(
         self,
         graph: str
