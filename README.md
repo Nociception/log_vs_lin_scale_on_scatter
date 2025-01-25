@@ -5,7 +5,7 @@ Compare the correlation difference between log and lin across time.
 
 Initially applied to datasets comparing **Gross Domestic Product (GDP) per capita** and **life expectancy**, the tool includes additional data such as population, and Gini coefficient.
 
-! [preview.gif](assets/preview.gif)
+![preview.gif](assets/preview.gif)
 
 ---
 
