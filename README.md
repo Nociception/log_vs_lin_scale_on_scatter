@@ -76,7 +76,7 @@ As said before, it is possible to replace these datasets (provided that they mee
   
 - **Dynamic Correlation and P-Values**:
   - Computation and display of correlation coefficients and p-values for all available time periods (right sections of the figure).
-  - Middle rith-side graph: Visualize the correlation difference across time.
+  - Middle rigth-side graph: Visualize the correlation difference across time.
 
 - **Annotations and Highlighting**:
   - Hover over points or curves for detailed annotations.
@@ -99,3 +99,17 @@ After I quite quickly solved the exercise, not calculating any correlation indic
 ![Bob the sponge "So many possibilities" meme](assets/so-many-possibilities-meme.jpg)
 ## GDP per capita may be insufficient ?
 As this data is a mean for each country, I wondered how I could add any nuance (especially for points with a large GDP per capita without high life expectancy): colors according to a new data concerning wealth distribution. I then chose the Gini coefficient, which is unfortunatly not calculated for so many countries/years, and also not perfect (other indicators were also possible, such as Theil index, or Hover index).
+
+---
+
+# Discussion
+This projet has been started for two main reasons:
+- Proposing a tool to visualize the difference... (Already explained above)
+- Discovering better Matplotlib, and applying POO aproach
+It is then more a pedagogical project than a serious/professional one.
+Many choices (and probably most of my code) are questionable:
+- probably polar > pandas
+- more inner classes
+- responsive could be better
+- transitions between two timedivs could be more fluid
+And probably many other aspects ; I am of course open to feedback.
