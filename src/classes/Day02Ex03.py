@@ -760,15 +760,13 @@ class Day02Ex03:
             [
                 ["log", "log", "log", "corr_log"],
                 ["log", "log", "log", "corr_log"],
-                ["log", "log", "log", "diff_corr"],
-                ["lin", "lin", "lin", "diff_corr"],
+                ["log", "log", "log", "corr_diff"],
+                ["lin", "lin", "lin", "corr_diff"],
                 ["lin", "lin", "lin", "corr_lin"],
                 ["lin", "lin", "lin", "corr_lin"],
             ],
             figsize=(fig_w, fig_h)
         )
-
-        # print(self.axes)
 
         ticks_labelticks_space = 1
         for ax in self.axes.values():
@@ -1549,6 +1547,52 @@ class Day02Ex03:
         )
         self.text_box_tracker.on_submit(self.add_tracker)
 
+    def set_and_plot_corr_diff(self) -> None:
+        """
+        Plots the absolute difference between log and linear correlations.
+        Colors the segments based on which correlation is dominant.
+        """
+
+        if (
+            self.corr_log is None
+            or self.corr_lin is None
+            or self.timediv_range is None
+        ):
+            raise ValueError("Error: Missing data: corr_log, corr_lin, or timediv_range")
+
+        corr_log = np.array(self.corr_log, dtype=float)
+        corr_lin = np.array(self.corr_lin, dtype=float)
+
+        if len(corr_log) != len(corr_lin) or len(corr_log) != len(self.timediv_range):
+            raise ValueError("Error: Mismatched lengths of corr_log, corr_lin, or timediv_range")
+
+        abs_diff = np.abs(corr_log - corr_lin)
+        is_log_dominant = corr_log > corr_lin
+
+        x_values = list(self.timediv_range)
+
+        ax = self.axes["corr_diff"]
+
+        for i in range(len(x_values) - 1):
+            x_segment = x_values[i:i + 2]
+            y_segment = abs_diff[i:i + 2]
+
+            color = "red" if is_log_dominant[i] else "green"
+            ax.plot(
+                x_segment,
+                y_segment,
+                color=color,
+                linewidth=2
+            )
+
+        ax.set_ylim(0, 2)
+        ax.set_title(
+            f"Absolute Difference of Correlations"
+            f" VS {self.timediv_type}"
+        )
+        ax.set_xlabel(self.timediv_type)
+        ax.set_ylabel("|Corr(log) - Corr(lin)|")
+
     def set_and_plot_right_side_graph(
         self,
         graph: str
@@ -1628,6 +1672,7 @@ class Day02Ex03:
         self.build_tracker()
 
         self.set_and_plot_right_side_graph("log")
+        self.set_and_plot_corr_diff()
         self.set_and_plot_right_side_graph("lin")
 
         self.fig.canvas.manager.set_window_title(
