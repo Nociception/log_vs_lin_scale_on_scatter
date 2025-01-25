@@ -743,6 +743,59 @@ class Day02Ex03:
         self.corr_lin = np.array(self.corr_lin)
         self.pvalue_lin = np.array(self.pvalue_lin)
 
+    def get_text_sizes(
+        self,
+        fig_width: float,
+        fig_height: float
+    ) -> dict:
+        """
+        Calculate text sizes dynamically based on figure dimensions.
+
+        Args:
+            fig_width (float): The current width of the figure in inches.
+            fig_height (float): The current height of the figure in inches.
+
+        Returns:
+            dict: A dictionary containing font sizes for various elements.
+        """
+
+        base_size = min(fig_width, fig_height) * 1.5
+        return {
+            "title": base_size * 1.2,
+            "label": base_size * 0.8,
+            "ticks": base_size * 0.6,
+            "annotation": base_size * 0.7,
+        }
+
+    def on_resize(self, event):
+        """
+        Handle the resize event to adjust layout and text sizes dynamically.
+
+        - Adjusts spacing between subplots based on figure size.
+        - Updates text sizes for titles, labels, and ticks.
+        """
+
+        fig_width, fig_height = self.fig.get_size_inches()
+
+        scale = min(fig_width / 10, fig_height / 6)
+        self.fig.subplots_adjust(
+            top=0.96,
+            bottom=0.1,
+            left=0.05,
+            right=0.99,
+            hspace=0.25 * scale,
+            wspace=0.2 * scale
+        )
+
+        text_sizes = self.get_text_sizes(fig_width, fig_height)
+        for _, ax in self.axes.items():
+            ax.set_title(ax.get_title(), fontsize=text_sizes["title"])
+            ax.set_xlabel(ax.get_xlabel(), fontsize=text_sizes["label"])
+            ax.set_ylabel(ax.get_ylabel(), fontsize=text_sizes["label"])
+            ax.tick_params(axis="both", labelsize=text_sizes["ticks"])
+
+        self.fig.canvas.draw_idle()
+
     def build_fig_axes(self) -> None:
         """
         Sets up the main figure and axes for visualization.
@@ -775,20 +828,7 @@ class Day02Ex03:
             ax.tick_params(axis='x', pad=ticks_labelticks_space)
             ax.tick_params(axis='y', pad=ticks_labelticks_space)
 
-        def on_resize(event):
-            fig_width, fig_height = self.fig.get_size_inches()
-            scale = min(fig_width / fig_w, fig_height / fig_h)
-            self.fig.subplots_adjust(
-                top=0.96,
-                bottom=0.1,
-                left=0.05,
-                right=0.99,
-                hspace=0.25 * scale,
-                wspace=0.2 * scale
-            )
-            plt.draw()
-
-        self.fig.canvas.mpl_connect('resize_event', on_resize)
+        self.fig.canvas.mpl_connect('resize_event', self.on_resize)
 
         self.fig.subplots_adjust(
             top=0.96,
