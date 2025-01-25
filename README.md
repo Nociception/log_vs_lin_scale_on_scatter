@@ -103,9 +103,9 @@ As this data is a mean for each country, I wondered how I could add any nuance (
 ---
 
 # Discussion
-This projet has been started for two main reasons:
+This project has been started for two main reasons:
 - Proposing a tool to visualize the difference... (Already explained above)
-- Discovering better Matplotlib, and applying POO aproach
+- Discovering better Matplotlib, and applying OOP aproach
 It is then more a pedagogical project than a serious/professional one.
 Many choices (and probably most of my code) are questionable:
 - probably polar > pandas
