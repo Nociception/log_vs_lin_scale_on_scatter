@@ -1,6 +1,8 @@
 .PHONY: run create-virtualenv help install
 
 run:
+	printf "A matplotlib window is going to pop:\n\
+	it is recommended to resize it full screen.\n"
 	python3 src/main.py
 
 create-virtualenv:
