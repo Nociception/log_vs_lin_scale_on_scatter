@@ -753,6 +753,10 @@ class Day02Ex03:
         self.fig, self.axes = plt.subplot_mosaic(
             [
                 ["log", "log", "log", "corr_log"],
+                ["log", "log", "log", "corr_log"],
+                ["log", "log", "log", "diff_corr"],
+                ["lin", "lin", "lin", "diff_corr"],
+                ["lin", "lin", "lin", "corr_lin"],
                 ["lin", "lin", "lin", "corr_lin"],
             ],
             figsize=(fig_w, fig_h)
@@ -766,7 +770,7 @@ class Day02Ex03:
                 bottom=0.1,
                 left=0.05,
                 right=0.99,
-                hspace=0.13 * scale,
+                hspace=0.27 * scale,
                 wspace=0.2 * scale
             )
             plt.draw()
@@ -778,7 +782,7 @@ class Day02Ex03:
             bottom=0.1,
             left=0.05,
             right=0.99,
-            hspace=0.13,
+            hspace=0.27,
             wspace=0.2
         )
 
@@ -828,7 +832,7 @@ class Day02Ex03:
             aspect=aspect
         )
         self.cbar.set_label(
-            label=extra_data.data_name,
+            label=extra_data.short_name,
             labelpad=labelpad
         )
         self.cbar.ax.yaxis.set_label_position(label_position)
