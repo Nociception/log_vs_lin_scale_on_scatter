@@ -1,11 +1,11 @@
 # **Overview**
 Realize the impact of choosing a logarithmic or linear scale when visualizing data and calculating statiscical indicators ; see both at once !
 
-It provides an interactive tool to explore and compare data across different scales, emphasizing how each representation leads to unique patterns and insights.
+Compare the correlation difference between log and lin across time.
 
 Initially applied to datasets comparing **Gross Domestic Product (GDP) per capita** and **life expectancy**, the tool includes additional data such as population, and Gini coefficient.
 
-![preview gif](assets/preview.gif)
+HERE
 
 ---
 
@@ -76,6 +76,7 @@ As said before, it is possible to replace these datasets (provided that they mee
   
 - **Dynamic Correlation and P-Values**:
   - Computation and display of correlation coefficients and p-values for all available time periods (right sections of the figure).
+  - Middle rith-side graph: Visualize the correlation difference across time.
 
 - **Annotations and Highlighting**:
   - Hover over points or curves for detailed annotations.
