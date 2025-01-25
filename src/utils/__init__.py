@@ -26,7 +26,8 @@ from .debug import (  # noqa: F401
 from .helpers import dict_printer, var_print_str  # noqa: F401
 from .conversions import (  # noqa: F401
     cust_suffixed_string_to_float,
-    put_kmb_suffix
+    put_kmb_suffix,
+    tick_label_formatter
 )
 from .get_data_name import get_data_name  # noqa: F401
 from .load_csv import load  # noqa: F401

@@ -16,21 +16,27 @@ from .DataFrame import DataFrame
 from fuzzywuzzy import process
 from matplotlib.animation import FuncAnimation
 from matplotlib.axes import Axes
+from matplotlib.cm import ScalarMappable
 from matplotlib.figure import Figure
-from matplotlib.colorbar import Colorbar
 import matplotlib.collections as mplcollec
 from matplotlib.collections import PathCollection
-import matplotlib.pyplot as plt
-from matplotlib.cm import ScalarMappable
-from matplotlib.widgets import Slider, TextBox, Button
+from matplotlib.colorbar import Colorbar
 from matplotlib.colors import Normalize, LinearSegmentedColormap
+import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
+from matplotlib.widgets import Slider, TextBox, Button
 import mplcursors
 import numpy as np
 import pandas as pd
 from .TimeDiv import TimeDiv
 import typeguard
 from typing import Callable
-from utils import dict_printer, var_print_str, put_kmb_suffix
+from utils import (
+    dict_printer,
+    var_print_str,
+    put_kmb_suffix,
+    tick_label_formatter
+)
 
 
 class Day02Ex03:
@@ -762,6 +768,13 @@ class Day02Ex03:
             figsize=(fig_w, fig_h)
         )
 
+        # print(self.axes)
+
+        ticks_labelticks_space = 1
+        for ax in self.axes.values():
+            ax.tick_params(axis='x', pad=ticks_labelticks_space)
+            ax.tick_params(axis='y', pad=ticks_labelticks_space)
+
         def on_resize(event):
             fig_width, fig_height = self.fig.get_size_inches()
             scale = min(fig_width / fig_w, fig_height / fig_h)
@@ -770,7 +783,7 @@ class Day02Ex03:
                 bottom=0.1,
                 left=0.05,
                 right=0.99,
-                hspace=0.27 * scale,
+                hspace=0.25 * scale,
                 wspace=0.2 * scale
             )
             plt.draw()
@@ -782,7 +795,7 @@ class Day02Ex03:
             bottom=0.1,
             left=0.05,
             right=0.99,
-            hspace=0.27,
+            hspace=0.25,
             wspace=0.2
         )
 
@@ -1020,6 +1033,9 @@ class Day02Ex03:
         else:
             ax.set_xlabel(f"{self.x_label} ({self.x_unit})")
         ax.set_ylabel(f"{self.y_label} ({self.y_unit})")
+
+        ax.xaxis.set_major_formatter(FuncFormatter(tick_label_formatter))
+        ax.xaxis.set_major_formatter(FuncFormatter(tick_label_formatter))
 
         ax.legend(loc="best")
 

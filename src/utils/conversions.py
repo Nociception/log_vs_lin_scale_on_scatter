@@ -1,5 +1,5 @@
 import numpy as np
-
+from typing import Any
 
 def cust_suffixed_string_to_float(value) -> float:
     """
@@ -43,3 +43,24 @@ def put_kmb_suffix(val: float) -> str:
         if val > threshold:
             return f"{val / threshold:.2f}{suffix}"
     return str(val)
+
+
+def tick_label_formatter(
+    x: int | float,
+    _: Any
+) -> str:
+    """DOCSTRING"""
+
+    if x == 0:
+        return "0"
+
+    if abs(x) < 1000:
+        return str(int(x)) if x.is_integer() else f"{x:.2f}"
+
+    exponent = int(f"{x:.0e}".split("e")[1])  
+    coefficient = x / (10 ** exponent)
+    
+    return (
+        f"{coefficient:.0f}e{exponent}" if coefficient == 1
+        else f"{coefficient:.1f}e{exponent}"
+    )
