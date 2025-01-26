@@ -11,26 +11,75 @@ Initially applied to datasets comparing **Gross Domestic Product (GDP) per capit
 
 # Summary
 1. [Getting Started](#Getting-Started)
-2. [Extended Use](#Extended-Use)
-3. [Key Features](#Key-Features)
-4. [Development Process](#Development-Process)
-5. [Discussion](#Discussion)
+2. [Setting basic tools](#Setting-basic-tools)
+3. [Extended Use](#Extended-Use)
+4. [Key Features](#Key-Features)
+5. [Development Process](#Development-Process)
+6. [Discussion](#Discussion)
 
 ---
 
 # **Getting Started**
 
 ## **Installation and running**
-Note: most of these steps are managed with a Makefile.
-Take a look at the [commands](Makefile).
-
+Note: most of these steps are managed with a Makefile. Take a look at the [commands](Makefile).
+Note: if you do not know/have git, python3, make, please go first to [this section](#Setting-basic-tools).
 1. Clone this repository:
    ```bash
    git clone https://github.com/Nociception/log_vs_lin_scale_on_scatter.git ; cd log_vs_lin_scale_on_scatter
    ```
+2. Install the required dependencies (maybe in a **virtual environment**):
+   (Optional but recommended) Create your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your local system):
+   ```bash
+   make create-virtual-env
+   ```
+   (Mandatory) install all dependencies:
+   ```bash
+   make install
+   ```
+3. Run the tool:
+   ```bash
+   make
+   ```
+4. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
+   Deleting the cloned repo will not be enough.
+   ```bash
+   deactivate
+   ```
 
-2. (if necessary) Install python3:
+---
+
+# Setting basic tools
+This section is designed for users who do not know git, python3 or make. Skip it is not the case.
+Otherwise, reed carefuly the steps here.
+1. Open a terminal window which should look like this (search among your app/software list):
+[terminal_picture](https://github.com/Nociception/assets_storage/blob/main/global/terminal_picture.png)
+You are now going to type some things in this basic window which accepts text, also called commands:
+type it, and then press Enter to run it.
+You cannot type anything. Not everything is a command.
+The following steps contain black boxes where proper commands are showed. To run the program, follow then these steps by typing and running these commands in your terminal window.
+Some of them may require you to type your computer password. You will not see any * character as you are maybe used to. If you want to move on these steps with these command, type it anyway and press Enter.
+2. Install git:
+   You maybe already have it ; check it out:
+   ```bash
+   git --version
+   ```
+   If you have something like: git version 2.34.1 (version number can be different)
+   Then go to the step 3.
+   Otherwise, install it:
+   ```bash
+   sudo apt install git
+   ```
+   You can now clone the project, but reach the end of this section's steps before.
+3. Install python3:
    As this is a python project, you need python3 installed on your computer:
+   You maybe already have it ; check it out:
+   ```bash
+   python3 --version
+   ```
+   If you have something like: Python 3.10.12 (version number can be different)
+   Then go to the step 4.
+   Otherwise, install it:
    ```bash
    sudo apt install python3
    ```
@@ -38,8 +87,7 @@ Take a look at the [commands](Makefile).
    ```bash
    sudo apt install python3-pip
    ```
-
-4. (if necessary and prefered) Install make:
+5. (if necessary and prefered) Install make:
    You can run the program with or without make.
    The Makefile manages some things for you, that you definetly can do on your own.
    But if you would like to use the Makefile, then install make:
@@ -49,29 +97,6 @@ Take a look at the [commands](Makefile).
    By the way, it could be useful for other projects you would clone!
    Some of them automate many things.
    It would require a lot of manual typing in your terminal without it.
-
-5. Install the required dependencies (maybe in a **virtual environment**):
-
-   (Optional but recommended) Create your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your local system):
-   ```bash
-   make create-virtual-env
-   ```
-
-   (Mandatory) install all dependencies:
-   ```bash
-   make install
-   ```
-
-6. Run the tool:
-   ```bash
-   make
-   ```
-
-7. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
-   Deleting the cloned repo will not be enough.
-   ```bash
-   deactivate
-   ```
 
 ---
 
