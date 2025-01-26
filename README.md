@@ -53,6 +53,7 @@ This section is designed for users who do not know git, python3 or make. Skip it
 Otherwise, reed carefuly the steps here.
 1. Open a terminal window which should look like this (search among your app/software list):
 ![terminal_picture](https://github.com/Nociception/assets_storage/blob/main/global/terminal_picture.png)
+
 You are now going to type some things in this basic window which accepts text, also called commands:
 type it, and then press Enter to run it.
 You cannot type anything. Not everything is a command.
