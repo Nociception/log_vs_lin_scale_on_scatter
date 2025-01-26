@@ -59,13 +59,13 @@ type it, and then press Enter to run it.
 You cannot type anything you would like to, as not everything is a valid command: `lol` will not work, whereas `ls` will.
 
 The following steps contain black boxes where proper commands are showed. To run the program, follow then these steps by typing and running these commands in your terminal window.
-Some of them may require you to type your computer password. You will not see any * character as you are maybe used to. If you want to move on these steps with these command, type it anyway and press Enter.
+Some of them may require you to type your computer password. You will not see any * character as you are maybe used to. If you want to move on these steps with these commands, type it and press Enter.
 
-Some commands will lead to new lines (not typed by you) diplay. They sometime can be numerous ; reading all of them can be quite long, provided that you would understand them. During this display, you cannot type new command. Once the process is done, the prompt is given back to you, and you can type a new command.
+Some commands will lead to new lines (not typed by you) display. They sometime can be numerous ; reading all of them can be quite long, provided that you would understand them. During this display, you cannot type any new command. Once the process is done, the prompt is given back to you, and you can type a new command.
 
-Tip: spot the little square on each of these code black boxes (just below in this guide), on top right: click on it to copy the command (it can be faster and easier than selecting and copying it). Once back in your terminal, Ctrl + Shift + v to paste it. (The Shift is important ; without, the paste could somehow fail).
+Tip: spot the little square on each of these code black boxes (just below in this tutorial), on top right: click on it to copy the command (it can be faster and easier than selecting and copying it). Once back in your terminal, Ctrl + Shift + v to paste it. (The Shift is important ; without, the paste could somehow fail).
 
-2. Install git:
+2. Install `git`:
    You maybe already have it ; check it out:
    ```bash
    git --version
@@ -80,7 +80,7 @@ Tip: spot the little square on each of these code black boxes (just below in thi
    You can now clone the project, but you should reach the end of this section before. Read more about git [here](https://en.wikipedia.org/wiki/Git)
 
 3. Install python3:
-   As this is a python project, you need python3 installed on your computer:
+   As this is a python project, you need `python3` installed on your computer:
    You maybe already have it ; check it out:
    ```bash
    python3 --version
@@ -91,17 +91,17 @@ Tip: spot the little square on each of these code black boxes (just below in thi
    ```bash
    sudo apt install python3
    ```
-   You also need the package manager pip3:
+   You also need the package manager `pip3`:
    ```bash
    sudo apt install python3-pip
    ```
 
    [Python](https://en.wikipedia.org/wiki/Python_(programming_language) is language programming, used to develop this program. Installing it allows you to run it (which is not possible without).
 
-4. (if necessary and prefered) Install make:
-   You can run the program with or without make.
+4. (if necessary and prefered) Install `make`:
+   You can run the program with or without `make`.
    The Makefile manages some things for you, that you definetly can do on your own.
-   But if you would like to use the Makefile, then install make.
+   But if you would like to use the Makefile, then install `make`.
 
    You maybe already have it ; check it out:
    ```bash
@@ -125,7 +125,7 @@ Tip: spot the little square on each of these code black boxes (just below in thi
    By the way, it could be useful for other projects you would clone!
    Some of them automate many things.
    It would require a lot of manual typing in your terminal without it.
-   Read more about make [here](https://en.wikipedia.org/wiki/Make_(software)).
+   Read more about `make` [here](https://en.wikipedia.org/wiki/Make_(software)).
 
    You and your computer are now ready to install the program! Go back to [the main installation guide](#Getting-Started).
 
