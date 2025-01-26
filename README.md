@@ -20,7 +20,6 @@ Initially applied to datasets comparing **Gross Domestic Product (GDP) per capit
 ---
 
 # **Getting Started**
-
 ## **Installation and running**
 Note: most of these steps are managed with a Makefile. Take a look at the [commands](Makefile).
 Note: if you do not know/have git, python3, make, please go first to [this section](#Setting-basic-tools).
@@ -53,7 +52,7 @@ Note: if you do not know/have git, python3, make, please go first to [this secti
 This section is designed for users who do not know git, python3 or make. Skip it is not the case.
 Otherwise, reed carefuly the steps here.
 1. Open a terminal window which should look like this (search among your app/software list):
-[terminal_picture](https://github.com/Nociception/assets_storage/blob/main/global/terminal_picture.png)
+![terminal_picture](https://github.com/Nociception/assets_storage/blob/main/global/terminal_picture.png)
 You are now going to type some things in this basic window which accepts text, also called commands:
 type it, and then press Enter to run it.
 You cannot type anything. Not everything is a command.
@@ -103,7 +102,6 @@ Some of them may require you to type your computer password. You will not see an
 # Extended use
 ## **Initial settings (main function)**
 Most of adjustable parameters are in the main function. Read the main's docstring for more details.
-
 ## **Required Datasets Architecture**
 Designed with modularity in mind, the tool can handle any structured dataset. However, datasets must be retrieved from .csv files, and be pre-processed and cleaned to meet the following structure:
 - The **first column** should contain the common header (e.g., `country`) across all datasets. The entities (or individuals in statistical terms) must overlap as much as possible to ensure robust and reliable results.
