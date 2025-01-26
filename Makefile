@@ -8,9 +8,16 @@ run:
 create-virtualenv:
 	python3 -m virtualenv env
 	@printf "\nRun on your own this command in your terminal:\n\
-	source env/bin/activate\n"
+	\nsource env/bin/activate\n\n\
+	Remind to deactivate it once you are done with this project usage session\n\
+	(whether your delete or not the cloned repo on your computer):\n\
+	\ndeactivate\n\n\
+	"
 
 install:
+	printf "If you encounter errors or packages versions conflicts\n\
+	with your local installed packages, consider using a virtual environment\n\
+	(make create-virtualenv)\n"
 	pip install -r requirements.txt
 
 help:
