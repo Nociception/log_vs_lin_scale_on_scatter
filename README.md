@@ -50,7 +50,7 @@ Note: if you do not know/have git, python3, make, please go first to [this secti
 
 # Setting basic tools
 This section is designed for users who do not know git, python3 or make. Skip it is not the case.
-Otherwise, reed carefuly the steps here.
+Otherwise, read carefuly the following steps.
 1. Open a terminal window which should look like this (search among your app/software list):
 ![terminal_picture](https://github.com/Nociception/assets_storage/blob/main/global/terminal_picture.png)
 
