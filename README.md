@@ -38,6 +38,7 @@ Take a look at the [commands](Makefile).
    ```
 
 4. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
+   Deleting the cloned repo will not be enough.
    ```bash
    deactivate
    ```
