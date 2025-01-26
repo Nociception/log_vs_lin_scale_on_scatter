@@ -1617,7 +1617,7 @@ class Day02Ex03:
             )
 
         abs_diff = np.abs(corr_log - corr_lin)
-        is_log_dominant = corr_log > corr_lin
+        is_log_dominant = np.abs(corr_log) > np.abs(corr_lin)
 
         x_values = np.array(list(self.timediv_range))
 
