@@ -37,6 +37,11 @@ Take a look at the [commands](Makefile).
    make
    ```
 
+4. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
+   ```bash
+   deactivate
+   ```
+
 ---
 
 # Extended use
@@ -73,6 +78,7 @@ As said before, it is possible to replace these datasets (provided that they mee
   - Two simultaneous visualizations with regression line:
     - **Logarithmic scale** (top left section of the figure).
     - **Linear scale** (bottom left section of the figure).
+    Please note that the log scale is only applied on the X axis of the top left graph.
   
 - **Dynamic Correlation and P-Values**:
   - Computation and display of correlation coefficients and p-values for all available time periods (right sections of the figure).
