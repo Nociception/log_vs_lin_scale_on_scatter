@@ -114,9 +114,16 @@ This project has been started for two main reasons:
 - Proposing a tool to visualize the difference... (Already explained above)
 - Discovering better Matplotlib, and applying OOP aproach
 It is then more a pedagogical project than a serious/professional one.
+
 Many choices (and probably most of my code) are questionable:
 - probably polar > pandas
 - more inner classes
 - responsive could be better
 - transitions between two timedivs could be more fluid
 And probably many other aspects ; I am of course open to feedback.
+
+Feature ideas for next versions:
+- add a remove_outliers tool, with adjustable criteria
+- allow to plot scatter for one targeted entity (country with the original data), and be able to go back to the overall scatter
+- allow to provide only two CSV (no data_point_size (n)or extra_data_x)
+- allow to receive (as input data) entities group, for targeting them in the scatter plot (for example: EU, former USSR, military alliances, free trade agreement, continent, any group in fact)
