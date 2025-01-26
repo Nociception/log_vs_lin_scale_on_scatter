@@ -29,18 +29,28 @@ Take a look at the [commands](Makefile).
    git clone https://github.com/Nociception/log_vs_lin_scale_on_scatter.git ; cd log_vs_lin_scale_on_scatter
    ```
 
-2. (if necessary and prefered) Install make:
+2. (if necessary) Install python3:
+   As this is a python project, you need python3 installed on your computer:
+   ```bash
+   sudo apt install python3
+   ```
+   You also need the package manager pip3:
+   ```bash
+   sudo apt install python3-pip
+   ```
+
+4. (if necessary and prefered) Install make:
    You can run the program with or without make.
    The Makefile manages some things for you, that you definetly can do on your own.
    But if you would like to use the Makefile, then install make:
    ```bash
    sudo apt install make
    ```
-   By the way, it could be useful for other project you would clone!
+   By the way, it could be useful for other projects you would clone!
    Some of them automate many things.
    It would require a lot of manual typing in your terminal without it.
 
-4. Install the required dependencies (maybe in a **virtual environment**):
+5. Install the required dependencies (maybe in a **virtual environment**):
 
    (Optional but recommended) Create your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your local system):
    ```bash
@@ -52,12 +62,12 @@ Take a look at the [commands](Makefile).
    make install
    ```
 
-5. Run the tool:
+6. Run the tool:
    ```bash
    make
    ```
 
-6. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
+7. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
    Deleting the cloned repo will not be enough.
    ```bash
    deactivate
