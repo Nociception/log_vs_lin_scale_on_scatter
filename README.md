@@ -63,7 +63,7 @@ Some of them may require you to type your computer password. You will not see an
 
 Some commands will lead to new lines (not typed by you) display. They sometime can be numerous ; reading all of them can be quite long, provided that you would understand them. During this display, you cannot type any new command. Once the process is done, the prompt is given back to you, and you can type a new command.
 
-Tip: spot the little square on each of these code black boxes (just below in this tutorial), on top right: click on it to copy the command (it can be faster and easier than selecting and copying it). Once back in your terminal, Ctrl + Shift + v to paste it. (The Shift is important ; without, the paste could somehow fail).
+Tip: spot the little square on each of these code boxes (just below in this tutorial), on right side: click on it to copy the command (it can be faster and easier than selecting and copying it). Once back in your terminal, Ctrl + Shift + v to paste it. (The Shift is important ; without, the paste could somehow fail).
 
 2. Install `git`:
    You maybe already have it ; check it out:
