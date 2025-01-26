@@ -59,6 +59,7 @@ type it, and then press Enter to run it.
 You cannot type anything. Not everything is a command.
 The following steps contain black boxes where proper commands are showed. To run the program, follow then these steps by typing and running these commands in your terminal window.
 Some of them may require you to type your computer password. You will not see any * character as you are maybe used to. If you want to move on these steps with these command, type it anyway and press Enter.
+
 2. Install git:
    You maybe already have it ; check it out:
    ```bash
@@ -71,6 +72,7 @@ Some of them may require you to type your computer password. You will not see an
    sudo apt install git
    ```
    You can now clone the project, but reach the end of this section's steps before.
+
 3. Install python3:
    As this is a python project, you need python3 installed on your computer:
    You maybe already have it ; check it out:
@@ -87,7 +89,8 @@ Some of them may require you to type your computer password. You will not see an
    ```bash
    sudo apt install python3-pip
    ```
-5. (if necessary and prefered) Install make:
+
+4. (if necessary and prefered) Install make:
    You can run the program with or without make.
    The Makefile manages some things for you, that you definetly can do on your own.
    But if you would like to use the Makefile, then install make:
