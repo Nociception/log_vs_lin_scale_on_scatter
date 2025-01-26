@@ -9,6 +9,15 @@ Initially applied to datasets comparing **Gross Domestic Product (GDP) per capit
 
 ---
 
+# Summary
+1. [Getting Started](#Getting-Started)
+2. [Extended Use](#Extended-Use)
+3. [Key Features](#Key-Features)
+4. [Development Process](#Development-Process)
+5. [Discussion](#Discussion)
+
+---
+
 # **Getting Started**
 
 ## **Installation and running**
@@ -20,7 +29,18 @@ Take a look at the [commands](Makefile).
    git clone https://github.com/Nociception/log_vs_lin_scale_on_scatter.git ; cd log_vs_lin_scale_on_scatter
    ```
 
-2. Install the required dependencies (maybe in a **virtual environment**):
+2. (if necessary and prefered) Install make:
+   You can run the program with or without make.
+   The Makefile manages some things for you, that you definetly can do on your own.
+   But if you would like to use the Makefile, then install make:
+   ```bash
+   sudo apt install make
+   ```
+   By the way, it could be useful for other project you would clone!
+   Some of them automate many things.
+   It would require a lot of manual typing in your terminal without it.
+
+4. Install the required dependencies (maybe in a **virtual environment**):
 
    (Optional but recommended) Create your virtual environment (in order to install everything necessary for this program, without any version conflicts with your possible own versions of some packages already installed on your local system):
    ```bash
@@ -32,12 +52,12 @@ Take a look at the [commands](Makefile).
    make install
    ```
 
-3. Run the tool:
+5. Run the tool:
    ```bash
    make
    ```
 
-4. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
+6. (Finally, if you have used a virtual environment) Deactivate the virtual environment:
    Deleting the cloned repo will not be enough.
    ```bash
    deactivate
@@ -95,7 +115,8 @@ As said before, it is possible to replace these datasets (provided that they mee
 
 ---
 
-# Development Process : how this project born and evolved
+# Development Process
+How this project born and evolved.
 ## Context
 The big class within the code is named Day02Ex03: [the exercise 03 of the day 02 of the "python for datascience"](https://github.com/Nociception/piscine_python_for_datascience/tree/master/Python-2-DataTable/ex03) [42](https://42.fr/)'s piscine. This exercise gives us two CSV ([gdppercapita_ppp_inflation_adjusted](data/gdppercapita_ppp_inflation_adjusted.csv) and [life_expectancy_years](data/life_expectancy.csv)), and asks to plot a scatter plot, with GDP on X (log scale) and life expectancy on Y. Eventually, we are informally asked if we see any correlation.
 
