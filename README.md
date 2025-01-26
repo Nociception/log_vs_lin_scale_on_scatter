@@ -59,6 +59,7 @@ type it, and then press Enter to run it.
 You cannot type anything. Not everything is a command.
 The following steps contain black boxes where proper commands are showed. To run the program, follow then these steps by typing and running these commands in your terminal window.
 Some of them may require you to type your computer password. You will not see any * character as you are maybe used to. If you want to move on these steps with these command, type it anyway and press Enter.
+Tip: spot the little square on each of these code black box: it will copy the command. Once in your terminal, Ctrl + Shift + v to paste it. (The Shift is important ; without, the paste could somehow fail)
 
 2. Install git:
    You maybe already have it ; check it out:
@@ -71,7 +72,8 @@ Some of them may require you to type your computer password. You will not see an
    ```bash
    sudo apt install git
    ```
-   You can now clone the project, but reach the end of this section's steps before.
+
+   You can now clone the project, but you should reach the end of this section before. Read more about git [here](https://en.wikipedia.org/wiki/Git)
 
 3. Install python3:
    As this is a python project, you need python3 installed on your computer:
@@ -90,6 +92,8 @@ Some of them may require you to type your computer password. You will not see an
    sudo apt install python3-pip
    ```
 
+   [Python](https://en.wikipedia.org/wiki/Python_(programming_language) is language programming, used to develop this program. Installing it allows you to run it (which is not possible without).
+
 4. (if necessary and prefered) Install make:
    You can run the program with or without make.
    The Makefile manages some things for you, that you definetly can do on your own.
@@ -100,6 +104,7 @@ Some of them may require you to type your computer password. You will not see an
    make --version
    ```
    If you have something like:
+
    GNU Make 4.3
    Built for x86_64-pc-linux-gnu
    Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -116,6 +121,9 @@ Some of them may require you to type your computer password. You will not see an
    By the way, it could be useful for other projects you would clone!
    Some of them automate many things.
    It would require a lot of manual typing in your terminal without it.
+   Read more about make [here](https://en.wikipedia.org/wiki/Make_(software)).
+
+   You and your computer are now ready to install the program! Go back to [the main installation guide](#Getting-Started).
 
 ---
 
