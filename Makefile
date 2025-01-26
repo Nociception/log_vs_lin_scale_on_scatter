@@ -6,13 +6,21 @@ run:
 	python3 src/main.py
 
 create-virtualenv:
-	python3 -m virtualenv env
-	@printf "\nRun on your own this command in your terminal:\n\
-	\nsource env/bin/activate\n\n\
-	Remind to deactivate it once you are done with this project usage session\n\
-	(whether your delete or not the cloned repo on your computer):\n\
-	\ndeactivate\n\n\
-	"
+	@if [ -f ./env/bin/activate ]; then \
+		printf "Virtual environment already set.\n\
+		Skipping creation...\n\
+		activate it (with make source env/bin/activate),\n\
+		and install dependencies (with make install) if you have not done it yet,\n\
+		or deactivate it (with deactivate).\n"; \
+	else \
+		printf "Virtual environment creation...\n"; \
+		python3 -m virtualenv env; \
+		printf "\nVirtual environment created.\n\
+		Run on your own this command in your terminal:\n\
+		\n\tsource env/bin/activate\n\n\
+		Remind to deactivate it once you are done with this project usage session\n\
+		(whether your delete or not the cloned repo on your computer): deactivate\n"; \
+	fi
 
 install:
 	printf "If you encounter errors or packages versions conflicts\n\
