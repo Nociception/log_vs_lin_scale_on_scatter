@@ -57,8 +57,10 @@ Otherwise, read carefuly the following steps.
 You are now going to type some things in this basic window which accepts text, also called commands:
 type it, and then press Enter to run it.
 You cannot type anything you would like to, as not everything is a valid command: `lol` will not work, whereas `ls` will.
+
 The following steps contain black boxes where proper commands are showed. To run the program, follow then these steps by typing and running these commands in your terminal window.
 Some of them may require you to type your computer password. You will not see any * character as you are maybe used to. If you want to move on these steps with these command, type it anyway and press Enter.
+
 Some commands will lead to new lines (not typed by you) diplay. They sometime can be numerous ; reading all of them can be quite long, provided that you would understand them. During this display, you cannot type new command. Once the process is done, the prompt is given back to you, and you can type a new command.
 
 Tip: spot the little square on each of these code black boxes (just below in this guide), on top right: click on it to copy the command (it can be faster and easier than selecting and copying it). Once back in your terminal, Ctrl + Shift + v to paste it. (The Shift is important ; without, the paste could somehow fail).
