@@ -103,7 +103,7 @@ The big class within the code is named Day02Ex03: [the exercise 03 of the day 02
 ## Spiral
 After I quite quickly solved the exercise, not calculating any correlation indicator was a bit shame to me. And it started a kind of a spiral: what about doing this (calculating it!), and that (for every year) and then that (being able to read each point's details), and that (using the [population.csv file](data/population.csv) to set the points' size)..., it came to this result (which I propably will improve again and again).
 
-![Bob the sponge "So many possibilities" meme](https://github.com/Nociception/assets_storage/blob/main/log_vs_lin_scale_on_scatter/so-many-possibilities-meme.jpg)
+![Bob the sponge "So many possibilities" meme](https://github.com/Nociception/assets_storage/blob/main/global/so-many-possibilities-meme.jpg)
 ## GDP per capita may be insufficient ?
 As this data is a mean for each country, I wondered how I could add any nuance (especially for points with a large GDP per capita without high life expectancy): colors according to a new data concerning wealth distribution. I then chose the Gini coefficient, which is unfortunatly not calculated for so many countries/years, and also not perfect (other indicators were also possible, such as Theil index, or Hover index).
 
