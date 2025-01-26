@@ -93,7 +93,23 @@ Some of them may require you to type your computer password. You will not see an
 4. (if necessary and prefered) Install make:
    You can run the program with or without make.
    The Makefile manages some things for you, that you definetly can do on your own.
-   But if you would like to use the Makefile, then install make:
+   But if you would like to use the Makefile, then install make.
+
+   You maybe already have it ; check it out:
+   ```bash
+   make --version
+   ```
+   If you have something like:
+   GNU Make 4.3
+   Built for x86_64-pc-linux-gnu
+   Copyright (C) 1988-2020 Free Software Foundation, Inc.
+   License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+   This is free software: you are free to change and redistribute it.
+   There is NO WARRANTY, to the extent permitted by law.
+
+   Then skip this step and go back to [the main installation guide](#Getting-Started).
+
+   Otherwise, install it:
    ```bash
    sudo apt install make
    ```
