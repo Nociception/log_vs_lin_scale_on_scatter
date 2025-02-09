@@ -96,7 +96,7 @@ Tip: spot the little square on each of these code boxes (just below in this tuto
    sudo apt install python3-pip
    ```
 
-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language) is language programming, used to develop this program. Installing it allows you to run it (which is not possible without).
+   [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is language programming, used to develop this program. Installing it allows you to run it (which is not possible without).
 
 4. (if necessary and prefered) Install `make`:
    You can run the program with or without `make`.
