@@ -165,7 +165,7 @@ class TimeDiv:
         for key in ['data_x', 'data_y', 'data_point_size']:
             self.df_dict[key] = self.df_dict[key].loc[
                 mask.reindex(self.df_dict[key].index, fill_value=False)
-                ].reset_index()
+            ].reset_index()
 
         self.merged_data = self.df_dict['data_x']
         for key in [
