@@ -1,11 +1,15 @@
 .PHONY: run create-virtualenv help install
 
+
 run:
 	printf "A matplotlib window is going to pop:\n\
 	it is recommended to resize it full screen.\n"
 	python3 src/main.py
 
+
 create-virtualenv:
+	sudo apt install virtualenv
+
 	@if [ -f ./env/bin/activate ]; then \
 		printf "Virtual environment already set.\n\
 		Skipping creation...\n\
@@ -22,11 +26,14 @@ create-virtualenv:
 		(whether your delete or not the cloned repo on your computer): deactivate\n"; \
 	fi
 
+
 install:
 	printf "If you encounter errors or packages versions conflicts\n\
 	with your local installed packages, consider using a virtual environment\n\
 	(make create-virtualenv)\n"
 	pip install -r requirements.txt
+	sudo apt-get install python3-tk
+
 
 help:
 	@printf "Here are the Makefile's rules available:\n\
