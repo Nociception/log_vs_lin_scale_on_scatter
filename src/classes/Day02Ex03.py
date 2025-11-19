@@ -9,36 +9,36 @@ Global code blocks folding (available on VSCode):
 ctrl+K (keep ctrl pressed after K)
 then ctrl+[indent level ; I suggest 2 for this file]
 
+Ctrl+K ctrl+] to unfold.
+
 After a ctr+clic on a function/method to see its definition,
 navigate back with the keyboard short cut: ctrl alt -
 """
 
-from .DataFrame import DataFrame
+from typing import Callable
+
+import matplotlib.collections as mplcollec
+import matplotlib.pyplot as plt
+import mplcursors
+import numpy as np
+import pandas as pd
+import typeguard
 from fuzzywuzzy import process
 from matplotlib.animation import FuncAnimation
 from matplotlib.axes import Axes
 from matplotlib.cm import ScalarMappable
-from matplotlib.collections import LineCollection
-from matplotlib.figure import Figure
-import matplotlib.collections as mplcollec
-from matplotlib.collections import PathCollection
+from matplotlib.collections import LineCollection, PathCollection
 from matplotlib.colorbar import Colorbar
-from matplotlib.colors import Normalize, LinearSegmentedColormap
-import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap, Normalize
+from matplotlib.figure import Figure
 from matplotlib.ticker import FuncFormatter
-from matplotlib.widgets import Slider, TextBox, Button
-import mplcursors
-import numpy as np
-import pandas as pd
+from matplotlib.widgets import Button, Slider, TextBox
+
+from utils import (dict_printer, put_kmb_suffix, tick_label_formatter,
+                   var_print_str)
+
+from .DataFrame import DataFrame
 from .TimeDiv import TimeDiv
-import typeguard
-from typing import Callable
-from utils import (
-    dict_printer,
-    var_print_str,
-    put_kmb_suffix,
-    tick_label_formatter
-)
 
 
 class Day02Ex03:
