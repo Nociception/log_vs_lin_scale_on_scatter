@@ -10,15 +10,6 @@ by switching on 0 or 1 the second condition in the if
 from classes import Day02Ex03
 import matplotlib
 import typeguard
-from utils import (  # noqa: F401
-    debug,
-    debug_decorator,
-    timediv_test_value,
-    target_test_value,
-)
-# noqa: F401 is used to silence flake8
-# These functions are not used by default,
-# but are available if needed.
 
 if matplotlib.get_backend() != 'TkAgg':
     matplotlib.use('TkAgg')
