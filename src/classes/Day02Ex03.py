@@ -1013,6 +1013,10 @@ class Day02Ex03:
             - The regression line is dashed and
             annotated with its correlation coefficient.
             - Points with NaN values are filtered out before plotting.
+            - The regression line is plotted only for data points where both
+            the x-values and the predicted y-values are finite.
+            - Any point for which either x or y is NaN is excluded to ensure
+            proper alignment and avoid rendering issues in matplotlib.
         """
 
         x = np.sort(
@@ -1024,9 +1028,12 @@ class Day02Ex03:
         )
         y = regression.predicted
 
-        mask = ~np.isnan(x) & ~np.isnan(y)
-        x_cleaned = x[mask]
-        y_cleaned = y[mask]
+        valid_x = ~np.isnan(x)
+        valid_y = ~np.isnan(y)
+        valid_points = valid_x & valid_y
+
+        x_cleaned = x[valid_points]
+        y_cleaned = y[valid_points]
 
         reg_line_type = 'log-linear' if is_log_scale else 'linear'
         ax.plot(
